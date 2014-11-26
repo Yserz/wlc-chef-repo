@@ -5,4 +5,28 @@
 ###
 .chef/*.pem
 .chef/encrypted_data_bag_secret
+
+###
+# Ignore Vagrant
+###
 key
+.vagrant
+
+###
+# Ignore Mac
+###
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+###
+# Windows
+###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
