@@ -1,0 +1,38 @@
+{
+  "name": "development",
+  "description": "Environment for development tools like Jenkins, Chef-Server etc.",
+  "cookbook_versions": {
+    "java": "= 1.29.0",
+    "jenkins": "= 2.1.2",
+    "chef-server": "2.1.6"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "java": {
+      "install_flavor": "oracle",
+      "jdk_version": "8",
+      "oracle": {
+        "accept_oracle_download_terms": true
+      }
+    },
+    "jenkins": {
+      "master": {
+        "install_method": "package",
+        "jvm_options": null,
+        "jenkins_args": null,
+        "user": "jenkins",
+        "group": "jenkins",
+        "use_system_accounts": true,
+        "host": "localhost",
+        "listen_address": "0.0.0.0",
+        "port": 8080,
+        "home": "/var/lib/jenkins",
+        "log_directory": "/var/log/jenkins"
+      }
+    }
+  }
+}
