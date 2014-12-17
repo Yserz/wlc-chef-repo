@@ -20,7 +20,7 @@
 
 include_recipe "build-essential"
 
-['libxml2-dev','libxml2','libxslt-dev'].each do |pkg|
+['libxml2-devel','libxml2','libxslt-devel'].each do |pkg|
   p = package pkg
   p.run_action(:install)
 end
