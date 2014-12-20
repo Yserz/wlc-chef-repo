@@ -1,0 +1,11 @@
+name             'wlc-jenkins'
+maintainer       'Michael Koppen'
+maintainer_email 'michael.koppen@welovecoding.com'
+license          'All rights reserved'
+description      'Installs/Configures wlc-jenkins'
+long_description 'Installs/Configures wlc-jenkins'
+version          '0.1.0'
+
+depends 'tar', '~> 0.6.0'
+depends 'java', '~> 1.29.0'
+depends 'jenkins', '~> 2.1.2'

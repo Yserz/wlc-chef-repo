@@ -1,0 +1,21 @@
+{
+  "name": "wlc-production",
+  "description": "Environment for production WeLoveCoding",
+  "cookbook_versions": {
+    "java": "= 1.29.0"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "java": {
+      "install_flavor": "oracle",
+      "jdk_version": "8",
+      "oracle": {
+        "accept_oracle_download_terms": true
+      }
+    }
+  }
+}

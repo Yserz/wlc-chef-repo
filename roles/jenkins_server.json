@@ -1,0 +1,20 @@
+{
+  "name": "jenkins_server",
+  "description": "Continious Integration Server Jenkins",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+
+  ],
+  "env_run_lists": {
+    "development": [
+      "recipe[wlc-jenkins::default]"
+    ]
+  }
+}
