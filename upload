@@ -1,0 +1,15 @@
+#!/bin/bash
+
+currDir="$(pwd)"
+for dir in ./cookbooks/*/
+do
+	dir=${dir%*/}
+	dir="$currDir/cookbooks/${dir##*/}"
+	cd $dir
+	if [ -f "$dir/Berksfile" ]; then
+		echo "Processing folder: $dir"
+		echo "Uploading Cookbooks..."
+		berks install && berks upload
+	fi
+	cd "$currDir"
+done
