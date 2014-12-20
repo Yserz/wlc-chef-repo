@@ -14,8 +14,7 @@
   ],
   "env_run_lists": {
     "development": [
-      "recipe[wlc-git::default]",
-      "recipe[wlc-nano::default]"
+      "recipe[wlc-git::default]"
     ]
   }
 }
