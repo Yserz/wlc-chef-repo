@@ -15,8 +15,7 @@
   "env_run_lists": {
     "development": [
       "recipe[git::default]",
-      "recipe[nano::default]",
-      "recipe[chef-dk::default]"
+      "recipe[nano::default]"
     ]
   }
 }
