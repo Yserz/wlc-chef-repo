@@ -1,20 +1,20 @@
 {
-  "name": "chef_workstation",
-  "description": "The Workstation to create, edit and remove cookbooks, roles and environments",
+  "name": "host_environment",
+  "description": "The host environment for development, test and production",
   "json_class": "Chef::Role",
+  "chef_type": "role",
   "default_attributes": {
 
   },
   "override_attributes": {
 
   },
-  "chef_type": "role",
   "run_list": [
 
   ],
   "env_run_lists": {
     "development": [
-      "recipe[wlc-git::default]"
+      "recipe[wlc-jenkins::default]"
     ],
     "wlc-test": [
     ],

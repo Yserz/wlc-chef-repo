@@ -1,0 +1,18 @@
+{
+  "name": "phy_host",
+  "description": "The physical host maschine hosting all VM's and containers",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "run_list": [
+    "recipe[virtualbox::default]",
+    "recipe[vagrant::rhel]"
+  ],
+  "env_run_lists": {
+  }
+}

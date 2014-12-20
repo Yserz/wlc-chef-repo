@@ -1,17 +1,13 @@
 {
   "name": "development",
   "description": "Environment for development tools like Jenkins, Chef-Server etc.",
-  "cookbook_versions": {
-    "java": "= 1.29.0",
-    "jenkins": "= 2.1.2",
-    "chef-server": "2.1.6"
-  },
   "json_class": "Chef::Environment",
   "chef_type": "environment",
-  "default_attributes": {
-
+  "cookbook_versions": {
+    "java": "= 1.29.0",
+    "wlc-jenkins": "= 0.1.0"
   },
-  "override_attributes": {
+  "default_attributes": {
     "java": {
       "install_flavor": "oracle",
       "jdk_version": "8",
@@ -34,5 +30,8 @@
         "log_directory": "/var/log/jenkins"
       }
     }
+  },
+  "override_attributes": {
+    
   }
 }
