@@ -1,0 +1,7 @@
+name             'wlc-tar'
+maintainer       'YOUR_NAME'
+maintainer_email 'YOUR_EMAIL'
+license          'All rights reserved'
+description      'Installs/Configures wlc-tar'
+long_description 'Installs/Configures wlc-tar'
+version          '0.1.0'
