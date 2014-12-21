@@ -2,19 +2,20 @@
   "name": "chef_workstation",
   "description": "The Workstation to create, edit and remove cookbooks, roles and environments",
   "json_class": "Chef::Role",
+  "chef_type": "role",
   "default_attributes": {
 
   },
   "override_attributes": {
 
   },
-  "chef_type": "role",
   "run_list": [
 
   ],
   "env_run_lists": {
     "development": [
-      "recipe[wlc-git::default]"
+      "recipe[wlc-git::default]",
+      "recipe[wlc-vagrant::rhel]"
     ],
     "wlc-test": [
     ],
