@@ -2,6 +2,7 @@
 # vi: set ft=ruby :
 
 VAGRANTFILE_API_VERSION = '2'
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 
 Vagrant.require_version '>= 1.6.5'
 
@@ -9,11 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = 'wlc-tar-berkshelf'
   if Vagrant.has_plugin?("vagrant-omnibus")
-    config.omnibus.chef_version = :latest
+    config.omnibus.chef_version = "12.0.1"
   end
-
-
-  config.vm.network :private_network, type: 'dhcp'
 
   config.berkshelf.enabled = true
 

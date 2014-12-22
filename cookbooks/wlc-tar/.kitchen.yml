@@ -1,13 +1,24 @@
 ---
 driver:
-  name: vagrant
+  name: docker
 
 provisioner:
   name: chef_solo
 
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.4
+  - name: centos-7.0
+    driver_config:
+      platform: rhel
+      provision_command: chef-client -v || (curl -L https://www.opscode.com/chef/install.sh | bash -s -- -v 12.0.1)
+      require_chef_omnibus: false
+      #privileged: true
+      #image: yserz/docker-vagrant-centos-7-minivm_chef
+      #volume: /sys/fs/cgroup:/sys/fs/cgroup:ro
+      #run_command: /usr/sbin/init
+      #forward: 
+       # - 22:22
+    run_list:
+      - recipe[wlc-tar::default]
 
 suites:
   - name: default

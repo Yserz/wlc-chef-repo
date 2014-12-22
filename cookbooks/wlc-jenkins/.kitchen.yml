@@ -1,13 +1,22 @@
 ---
 driver:
-  name: vagrant
+  name: docker
 
 provisioner:
   name: chef_solo
 
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.4
+  - name: centos-7.0
+    driver_config:
+      platform: rhel
+      dockerfile: ./Dockerfile
+      require_chef_omnibus: false
+      privileged: true
+      # Only runnable on systemd systems
+      volume: /sys/fs/cgroup:/sys/fs/cgroup:ro
+      run_command: /sbin/init
+    run_list:
+      - recipe[wlc-jenkins::master]
 
 suites:
   - name: default

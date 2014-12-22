@@ -14,8 +14,7 @@
   ],
   "env_run_lists": {
     "development": [
-      "recipe[wlc-git::default]",
-      "recipe[wlc-vagrant::rhel]"
+      "recipe[wlc-git::default]"
     ],
     "wlc-test": [
     ],
