@@ -13,3 +13,5 @@ do
 	fi
 	cd "$currDir"
 done
+
+knife upload /

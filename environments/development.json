@@ -5,7 +5,8 @@
   "chef_type": "environment",
   "cookbook_versions": {
     "java": "= 1.29.0",
-    "wlc-jenkins": "= 0.1.0"
+    "wlc-jenkins": "= 0.1.0",
+    "wlc-workstation": "= 0.1.0"
   },
   "default_attributes": {
     "java": {
@@ -29,6 +30,9 @@
         "home": "/var/lib/jenkins",
         "log_directory": "/var/log/jenkins"
       }
+    },
+    "wlc-workstation":{
+      "ssl_verify": false
     }
   },
   "override_attributes": {
