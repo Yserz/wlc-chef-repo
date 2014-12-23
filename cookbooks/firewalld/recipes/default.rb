@@ -1,11 +1,11 @@
 #
-# Cookbook Name:: wlc-chef-server
+# Cookbook Name:: firewalld
 # Recipe:: default
 #
 # Copyright (C) 2014 Michael Koppen
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe 'tar'
-include_recipe 'git'
-include_recipe 'chef-server'
+package 'firewalld' do
+  action :install
+end

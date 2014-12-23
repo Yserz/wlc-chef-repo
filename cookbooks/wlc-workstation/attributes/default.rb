@@ -10,3 +10,4 @@
 default['wlc-workstation']['ssl_verify'] = true
 default['wlc-workstation']['user'] = 'vagrant'
 default['wlc-workstation']['group'] = 'vagrant'
+default['wlc-workstation']['repo_url'] = 'https://github.com/welovecoding/wlc-chef-repo.git'

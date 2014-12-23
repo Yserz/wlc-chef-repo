@@ -1,11 +1,10 @@
 #
 # Cookbook Name:: wlc-chef-server
-# Recipe:: default
+# Attributes:: default
 #
 # Copyright (C) 2014 Michael Koppen
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe 'tar'
-include_recipe 'git'
-include_recipe 'chef-server'
+
+default['wlc-chef-server']['repo_url'] = 'https://github.com/opscode/chef-repo.git'

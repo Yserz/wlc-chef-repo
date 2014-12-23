@@ -1,0 +1,24 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: centos-7.0
+    driver_config:
+      platform: rhel
+      dockerfile: ./Dockerfile
+      require_chef_omnibus: false
+      privileged: true
+      # Only runnable on systemd systems
+      volume: /sys/fs/cgroup:/sys/fs/cgroup:ro
+      run_command: /sbin/init
+    run_list:
+      - recipe[firewalld::default]
+
+suites:
+  - name: default
+    run_list:
+    attributes:

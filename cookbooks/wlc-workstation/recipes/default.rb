@@ -51,6 +51,15 @@ link '/usr/bin/gem' do
   action :create
   only_if 'test -f /opt/chef/embedded/bin/gem'
 end
+link '/usr/bin/ruby' do
+  to '/opt/chef/embedded/bin/ruby'
+  owner 'root'
+  group 'root'
+  action :create
+  only_if 'test -f /opt/chef/embedded/bin/ruby'
+end
+
+
 link '/usr/bin/bundle' do
   to '/opt/chef/embedded/bin/bundle'
   owner 'root'
@@ -71,6 +80,13 @@ link '/usr/bin/berks' do
   group 'root'
   action :create
   only_if 'test -f /opt/chef/embedded/bin/berks'
+end
+link '/usr/bin/foodcritic' do
+  to '/opt/chef/embedded/bin/foodcritic'
+  owner 'root'
+  group 'root'
+  action :create
+  only_if 'test -f /opt/chef/embedded/bin/foodcritic'
 end
 
 group node['wlc-workstation']['group'] do
@@ -94,7 +110,7 @@ directory "/home/#{node['wlc-workstation']['user']}/.berkshelf" do
 end
 
 # copy berkshelf config
-template "/home/vagrant/.berkshelf/config.json" do
+template "/home/#{node['wlc-workstation']['user']}/.berkshelf/config.json" do
   source 'config.json.erb'
   owner "#{node['wlc-workstation']['user']}"
   group "#{node['wlc-workstation']['group']}"
@@ -102,3 +118,10 @@ template "/home/vagrant/.berkshelf/config.json" do
 end
 
 include_recipe 'git'
+
+git "/vagrant/wlc-chef-repo" do
+  repository node['wlc-workstation']['repo_url']
+  action :sync
+end
+
+include_recipe 'knife'

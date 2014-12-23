@@ -1,0 +1,11 @@
+log_level                :<%= node['knife']['log_level'] %>
+log_location             <%= node['knife']['log_location'] %>
+node_name                '<%= node['knife']['node_name'] %>'
+client_key               '<%= node['knife']['client_key_path'] %>'
+validation_client_name   '<%= node['knife']['validation_client_name'] %>'
+validation_key           '<%= node['knife']['validation_key'] %>'
+chef_server_url          '<%= node['knife']['chef_server_url'] %>'
+ssl_verify_mode          :<%= node['knife']['ssl_verify_mode'] %>
+syntax_check_cache_path  '<%= node['knife']['syntax_check_cache_path'] %>'
+knife[:editor] = '<%= node['knife']['editor'] %>'
+cookbook_path [ '<%= node['knife']['cookbook_path'] %>' ]

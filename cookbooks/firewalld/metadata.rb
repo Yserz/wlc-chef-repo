@@ -1,0 +1,7 @@
+name             'firewalld'
+maintainer       'Michael Koppen'
+maintainer_email 'michael.koppen@welovecoding.com'
+license          'All rights reserved'
+description      'Installs/Configures firewalld'
+long_description 'Installs/Configures firewalld'
+version          '0.1.0'
