@@ -32,7 +32,9 @@
       }
     },
     "wlc-workstation":{
-      "ssl_verify": false
+      "ssl_verify": false,
+      "ssl_verify_mode": ":verfiy_none",
+      "validation_key_path": "/tmp/vagrant-chef-2/"
     }
   },
   "override_attributes": {

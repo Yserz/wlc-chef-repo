@@ -11,12 +11,12 @@ include_recipe 'git'
 include_recipe 'chef-server'
 include_recipe 'knife'
 
-default['knife']['temp_node_name'] = 'temp'
-default['knife']['temp_client_key_path'] = '/tmp/temp.pem'
+node.default['knife']['temp_node_name'] = 'temp'
+node.default['knife']['temp_client_key_path'] = '/tmp/temp.pem'
 
 # Create a temp user
 knife_user node['knife']['temp_node_name'] do
-  #password (0...20).map { [*('a'..'z'),*('A'..'Z'),*('0'..'9')].to_a[rand(62)] }.join
+  password (0...20).map { [*('a'..'z'),*('A'..'Z'),*('0'..'9')].to_a[rand(62)] }.join
   admin true
   output_key_file_path node['knife']['temp_client_key_path']
   

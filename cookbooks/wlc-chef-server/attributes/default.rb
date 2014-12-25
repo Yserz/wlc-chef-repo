@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-default['wlc-chef-server']['ssl_verify_mode'] = "verify_none"
+default['wlc-chef-server']['ssl_verify_mode'] = :verify_none
 default['wlc-chef-server']['user'] = 'root'
 default['wlc-chef-server']['group'] = 'root'
 if node['wlc-chef-server']['user'] == 'root'

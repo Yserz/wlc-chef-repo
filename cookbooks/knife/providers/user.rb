@@ -71,7 +71,7 @@ def create_user
   cmd << '--password'         << new_resource.password
   cmd << '--file'             << new_resource.output_key_file_path
   
-  Chef::Log.info "#{ cmd.join('\n') }"
+  Chef::Log.info "#{ cmd.join(' ') }"
   
   execute "knife user create" do
     command cmd.join(' ')
@@ -88,7 +88,7 @@ def delete_user
   cmd << '--disable-editing'
   cmd << '--yes'
   
-  Chef::Log.info "#{ cmd.join('\n') }"
+  Chef::Log.info "#{ cmd.join(' ') }"
   
   execute "knife user delete" do
     command cmd.join(' ')
