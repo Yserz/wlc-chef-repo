@@ -28,3 +28,5 @@ default['knife']['editor'] = "vi"
 
 default['knife']['default_secret'] = nil
 default['knife']['default_secret_path'] = nil
+
+default['knife']['vault_mode'] = 'client'

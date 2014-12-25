@@ -38,7 +38,7 @@ end
 ENV['NOKOGIRI_USE_SYSTEM_LIBRARIES'] = '1'
 ENV['USE_SYSTEM_GECODE'] = '1'
 
-%w{berkshelf test-kitchen foodcritic bundler}.each do |pkg|
+%w{berkshelf chef-vault test-kitchen foodcritic bundler}.each do |pkg|
   gem_package pkg do
     gem_binary '/opt/chef/embedded/bin/gem'
     action :install
