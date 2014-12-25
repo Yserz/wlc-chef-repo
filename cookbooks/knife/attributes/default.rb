@@ -25,3 +25,6 @@ default['knife']['ssl_verify_mode'] = :verify_peer
 default['knife']['syntax_check_cache_path'] = "#{node['knife']['user_home']}/.chef/syntax_check_cache"
 default['knife']['cookbook_path'] = ""
 default['knife']['editor'] = "vi"
+
+default['knife']['default_secret'] = nil
+default['knife']['default_secret_path'] = nil

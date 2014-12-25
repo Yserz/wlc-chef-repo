@@ -37,3 +37,6 @@ node.override['knife']['ssl_verify_mode'] = node['wlc-workstation']['ssl_verify_
 node.override['knife']['syntax_check_cache_path'] = "#{node['wlc-workstation']['user_home']}/.chef/syntax_check_cache"
 node.override['knife']['cookbook_path'] = "#{node['wlc-workstation']['repo_path_local']}/cookbooks"
 node.override['knife']['editor'] = "vi"
+
+node.override['knife']['default_secret'] = "data_bag_master_key"
+node.override['knife']['default_secret_path'] = "/etc/chef/"

@@ -9,3 +9,6 @@ ssl_verify_mode          <%= node['knife']['ssl_verify_mode'] %>
 syntax_check_cache_path  '<%= node['knife']['syntax_check_cache_path'] %>'
 knife[:editor] = '<%= node['knife']['editor'] %>'
 cookbook_path [ '<%= node['knife']['cookbook_path'] %>' ]
+
+knife[:secret] = <%= node['knife']['default_secret'] %>
+knife[:secret_file] = <%= node['knife']['default_secret_path'] %>
