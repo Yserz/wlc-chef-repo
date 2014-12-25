@@ -8,14 +8,13 @@
 #
 include_recipe 'wlc-chef-server::default'
 
-
-git "#{Chef::Config[:file_cache_path]}/wlc-chef-repo" do
+git node['wlc-chef-server']['repo_path_local'] do
   repository node['wlc-chef-server']['repo_url']
   action :sync
   notifies :run, "execute[upload_to_chef_server]", :immediately
 end
 
 execute "upload_to_chef_server" do
-  cmd "knife upload /"
-  cwd "#{Chef::Config[:file_cache_path]}/wlc-chef-repo"
+  command "knife upload /"
+  cwd node['wlc-chef-server']['repo_path_local']
 end

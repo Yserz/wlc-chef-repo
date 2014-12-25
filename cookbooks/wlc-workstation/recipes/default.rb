@@ -14,6 +14,7 @@
   end
 end
 
+# RHEL ONLY!!!
 remote_file "#{Chef::Config[:file_cache_path]}/gecode-3.7.3-3.el6.x86_64.rpm" do
     source "ftp://ftp.univie.ac.at/systems/linux/fedora/epel/6/x86_64/gecode-3.7.3-3.el6.x86_64.rpm"
     action :create
@@ -94,14 +95,14 @@ group node['wlc-workstation']['group'] do
 end
 
 user node['wlc-workstation']['user'] do
-  group node['wlc-workstation']['group']
+  gid node['wlc-workstation']['group']
   system true
   shell "/bin/bash"
-  home "/home/#{node['wlc-workstation']['user']}"
+  home node['wlc-workstation']['user_home']
   action :create
 end
 
-directory "/home/#{node['wlc-workstation']['user']}/.berkshelf" do
+directory "#{node['wlc-workstation']['user_home']}/.berkshelf" do
   owner node['wlc-workstation']['user']
   group node['wlc-workstation']['group']
   mode '0755'
@@ -110,7 +111,7 @@ directory "/home/#{node['wlc-workstation']['user']}/.berkshelf" do
 end
 
 # copy berkshelf config
-template "/home/#{node['wlc-workstation']['user']}/.berkshelf/config.json" do
+template "#{node['wlc-workstation']['user_home']}/.berkshelf/config.json" do
   source 'config.json.erb'
   owner "#{node['wlc-workstation']['user']}"
   group "#{node['wlc-workstation']['group']}"
@@ -119,7 +120,7 @@ end
 
 include_recipe 'git'
 
-git "/vagrant/wlc-chef-repo" do
+git node['wlc-workstation']['repo_path_local'] do
   repository node['wlc-workstation']['repo_url']
   action :sync
 end

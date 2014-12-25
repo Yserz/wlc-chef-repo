@@ -13,12 +13,23 @@ platforms:
       require_chef_omnibus: false
       privileged: true
       # Only runnable on systemd systems
-      volume: /sys/fs/cgroup:/sys/fs/cgroup:ro
+      volume: 
+        - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        - /etc/chef:/etc/chef
       run_command: /sbin/init
-    run_list:
-      - recipe[knife::default]
 
 suites:
   - name: default
     run_list:
-    attributes:
+      - recipe[knife::default]
+    attributes: 
+      {
+        knife: {
+            user: "kitchen",
+            group: "kitchen",
+            chef_server_url: "https://192.168.1.2:9191/",
+            ssl_verify_mode: ":verify_none",
+            node_name: "vm-chef-workstation"
+          }
+      }
+      

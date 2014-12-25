@@ -2,4 +2,4 @@ source "https://supermarket.chef.io"
 
 metadata
 
-cookbook 'knife', path: '../knife'
+cookbook 'knife', '~> 0.1.0', chef_api: :config#path: '../knife'
